@@ -33,7 +33,7 @@
           <div class="inner cover">
             <h1 class="cover-heading">RomanWaze</h1>
             <p class="lead">Discover marvels of the ancient world by placing thumb tacks on the physical map in front of you. RomanWaze will then calculate the distance, route, and other cartographical information to augment your experience!</p>
-            <button onclick="renderMap()" type="button" class="btn btn-success">Generate Your Map!</button>
+            <button id="generateMapButton" onclick="renderMap()" type="button" class="btn btn-success">Generate Your Map!</button>
             <p style="margin-top: 30px" class="lead">
                 <img id="mymap"  style="width:100%;display:none" src="map.png">
             </p>
@@ -78,6 +78,7 @@
 function renderMap() {
   console.log("renderMap called");
   $('#mymap').fadeIn();
+  $('#generateMapButton').fadeOut();
   // $('#explanation').fadeIn();
 
 }
