@@ -178,15 +178,29 @@ $(document).on('keypress',function(e) {
 
     //8 Key
     if(e.which == 56) {
-        console.log("scenario 7");
-        document.getElementById("mymap").src = "map4.png";
+        console.log("scenario 8");
+        document.getElementById("mymap").src = "map9.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
         $('#explanation').fadeOut();
-        document.getElementById("description").innerText="The Fastest journey from Sirmium to Carthago in July takes 23.9 days, covering 1944 kilometers."
-        document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 10.3"
-        document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 125.7"
-        document.getElementById("carriage").innerText="Per passenger in a carriage: 737.1"
+        document.getElementById("description").innerText="The Fastest journey from Roma to Londinium in July takes 27.1 days, covering 2967 kilometers."
+        document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 6.85"
+        document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 7.87"
+        document.getElementById("carriage").innerText="Per passenger in a carriage: 900.93"
+        $('#explanation').fadeIn();
+    }
+
+    //9 Key
+    if(e.which == 57) {
+        console.log("scenario 9");
+        document.getElementById("mymap").src = "map10.png";
+        $('#mymap').fadeOut();
+        $('#mymap').fadeIn();
+        $('#explanation').fadeOut();
+        document.getElementById("description").innerText="The Fastest journey from Roma to Augusta Treverorum in July takes 32.9 days, covering 1464 kilometers."
+        document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 20.4"
+        document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 25.17"
+        document.getElementById("carriage").innerText="Per passenger in a carriage: 1260.82"
         $('#explanation').fadeIn();
     }
 });
