@@ -10,8 +10,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <title>RomanWaze</title>
 
     <!-- Bootstrap core CSS -->
@@ -37,14 +37,37 @@
             <p style="margin-top: 30px" class="lead">
                 <img id="mymap"  style="width:100%;display:none" src="map.png">
             </p>
-            <div id="explanation" style="display:none;position:relative;right:310px;bottom:350px;width:300px;">
-              <a id="description" style="font-size:90%;font-weight: bold">The Fastest journey from Roma to Constantinopolis in July takes 21.3 days, covering 2724 kilometers.</a>
-              <ul style="font-size:90%;font-style:italic;text-align: left;margin-top: 6px;">
-                <li id="donkey">Per kilogram of wheat (by donkey): 4.93</li>
-                <li id="wagon">Per kilogram of wheat (by wagon): 5.7</li>
-                <li id="carriage">Per passenger in a carriage: 606.24</li>
-              </ul>
+            <div id="explanation" style="display:none;position:relative;right:310px;bottom:350px;width:300px;color:black">
+                <div class="jumbotron" style="text-shadow: none;padding-top: 2rem;padding-bottom:13rem">
+                        <i class="fa fa-map" style="font-size:24px"></i>
+                      <a id="description" style="font-weight: bold;text-align: left">The Fastest journey from Roma to Constantinopolis in July takes 21.3 days, covering 2724 kilometers.</a>
+                      <div style="font-size:90%;font-style:italic;text-align: left;margin-top: 6px;width:100%;margin-left: 7px">
+                        <i style="margin-top: 10px" class="fas fa-democrat"></i>
+                        <a id="donkey">Per kilogram of wheat (by donkey): 4.93 denarii</a>
+                        <br><br>
+                        <i class="fas fa-luggage-cart"></i>
+                        <a id="wagon">Per kilogram of wheat (by wagon): 5.7 denarii</a>
+                        <br><br>
+                        <i class="fas fa-baby-carriage"></i>
+                        <a id="carriage">Per passenger in a carriage: 606.24 denarii</a>
+                      </div>
+                </div>
             </div>
+            <div id="explanation2" style="display:none;position:relative;left:640px;bottom:900px;width:300px;color:black">
+                <div class="jumbotron" style="text-shadow: none;padding-top: 2rem;padding-bottom:2rem">
+                        <i class="fas fa-map-marker-alt"></i>
+                      <a id="description" style="font-weight: bold;text-align: left">Rome was founded in 753BC by its first king, Romulus. It grew into a rich and powerful city during the next few hundred years. </a>
+                      <div style="font-size:90%;font-style:italic;text-align: left;margin-top: 6px;width:100%;margin-left: 7px">
+                        <i style="margin-top: 10px" class="fas fa-location-arrow"></i>
+                        <a id="donkey">Roman legend says that Romulus had a twin brother called Remus. As babies they were abandoned in the area which later became Rome. A she-wolf found and raised them, but when they grew up, Romulus fought and killed Remus and became the first ruler of Rome!/a>
+                        <br><br>
+                        <i class="fas fa-location-arrow"></i>
+                        <a id="wagon">The Romans built such a huge empire and conquered new lands, thanks to their strong army. The Roman army could march up to 40km a day!</a>
+     
+                      </div>
+                </div>
+            </div>
+
 
 
           </div>
@@ -79,7 +102,7 @@ function renderMap() {
   console.log("renderMap called");
   $('#mymap').fadeIn();
   $('#generateMapButton').fadeOut();
-  // $('#explanation').fadeIn();
+  // $('#explanation').fadeIn();$('#explanation2').fadeIn();
 
 }
 
@@ -90,7 +113,7 @@ $(document).on('keypress',function(e) {
         document.getElementById("mymap").src = "map.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
     }
     //2 Key
     if(e.which == 50) {
@@ -98,12 +121,12 @@ $(document).on('keypress',function(e) {
         document.getElementById("mymap").src = "map2.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Roma to Lugdunum in July takes 11.8 days, covering 1302 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 2.32"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 2.49"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 449.01"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
 
     //3 Key
@@ -112,12 +135,12 @@ $(document).on('keypress',function(e) {
         document.getElementById("mymap").src = "map3.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Roma to Constantinopolis in July takes 21.3 days, covering 2724 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 4.93"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 5.7"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 606.24"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
 
     //4 Key
@@ -126,12 +149,12 @@ $(document).on('keypress',function(e) {
         document.getElementById("mymap").src = "map5.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Roma to Tarraco in July takes 8 days, covering 1020 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 0.86"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 0.86"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 215.4"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
 
     //5 Key
@@ -140,12 +163,12 @@ $(document).on('keypress',function(e) {
         document.getElementById("mymap").src = "map6.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Roma to Corinthus in July takes 9.4 days, covering 1444 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 1"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 1"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 251.25"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
 
     //6 Key
@@ -154,12 +177,12 @@ $(document).on('keypress',function(e) {
         document.getElementById("mymap").src = "map7.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Roma to Antiochia in July takes 17.7 days, covering 2903 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 2.4"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 2.57"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 472.03"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
 
     //7 Key
@@ -168,12 +191,12 @@ $(document).on('keypress',function(e) {
         document.getElementById("mymap").src = "map8.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Roma to Antiochia in July takes 17.7 days, covering 2903 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 2.4"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 2.57"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 472.03"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
 
     //8 Key
@@ -182,12 +205,12 @@ $(document).on('keypress',function(e) {
         document.getElementById("mymap").src = "map9.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Roma to Londinium in July takes 27.1 days, covering 2967 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 6.85"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 7.87"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 900.93"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
 
     //9 Key
@@ -196,168 +219,168 @@ $(document).on('keypress',function(e) {
         document.getElementById("mymap").src = "map10.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Roma to Augusta Treverorum in July takes 32.9 days, covering 1464 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 20.4"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 25.17"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 1260.82"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
       if(e.which == 113) {
         console.log("scenario 10");
         document.getElementById("mymap").src = "map11.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Corinthus to Londinium in July takes 38.1 days, covering 4354 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 7.9"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 8.91"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 1164.29"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
           if(e.which == 119) {
         console.log("scenario 11");
         document.getElementById("mymap").src = "map12.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Corinthus to Tarraco in July takes 17.9 days, covering 2450 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 1.79"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 1.79"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 451.04"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
           if(e.which == 101) {
         console.log("scenario 12--E");
         document.getElementById("mymap").src = "map13.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Corinthus to Roma in July takes 12.2 days, covering 1439 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 1.81"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 1.98"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 320.42"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
           if(e.which == 114) {
         console.log("scenario 13");
         document.getElementById("mymap").src = "map14.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Corinthus to Constantinopolis in July takes 11.8 days, covering 1280 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 3.93"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 4.71"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 354.99"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
         if(e.which == 116) {
         console.log("scenario 13");
         document.getElementById("mymap").src = "map15.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Corinthus to Sirmium in July takes 20.6 days, covering 1261 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 9.97"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 12.25"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 654.68"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
         if(e.which == 121) {
         console.log("scenario 15");
         document.getElementById("mymap").src = "map16.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Corinthus to Lugdunum in July takes 27.6 days, covering 2653 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 9.11"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 10.91"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 839.53"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
             if(e.which == 117) {
         console.log("scenario 17");
         document.getElementById("mymap").src = "map17.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Corinthus to Augusta Treverorum in July takes 43.9 days, covering 2851 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 21.45"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 26.21"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 1524.1"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
                 if(e.which == 105) {
         console.log("scenario 18");
         document.getElementById("mymap").src = "map18.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Tarraco to Londinium in July takes 22.4 days, covering 2438 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 6.32"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 7.34"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 767.02"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
                     if(e.which == 111) {
         console.log("scenario 18");
         document.getElementById("mymap").src = "map19.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Tarraco to Lugdunum in July takes 12.2 days, covering 853 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 7.56"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 9.36"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 438.72"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
                         if(e.which == 112) {
         console.log("scenario 18");
         document.getElementById("mymap").src = "map20.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Tarraco to Augusta Treverorum in July takes 32 days, covering 1579 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 21.82"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 26.98"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 1298.61"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
                         if(e.which == 97) {
         console.log("scenario 18");
         document.getElementById("mymap").src = "map21.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Tarraco to Corinthus in July takes 15.3 days, covering 2406 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 1.52"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 1.53"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 384.53"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
                             if(e.which == 115) {
             console.log("scenario 19");
         document.getElementById("mymap").src = "map5.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Tarraco to Roma in July takes 8 days, covering 1020 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 0.86"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 0.86"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 215.4"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
                                 if(e.which == 100) {
             console.log("scenario 19");
         document.getElementById("mymap").src = "map5.png";
         $('#mymap').fadeOut();
         $('#mymap').fadeIn();
-        $('#explanation').fadeOut();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
         document.getElementById("description").innerText="The Fastest journey from Tarraco to Roma in July takes 8 days, covering 1020 kilometers."
         document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 0.86"
         document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 0.86"
         document.getElementById("carriage").innerText="Per passenger in a carriage: 215.4"
-        $('#explanation').fadeIn();
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
     }
 
 
