@@ -158,3 +158,10 @@ body {
     width: 42rem;
   }
 }
+
+select {
+  visibility: hidden; 
+  margin: 0 1em 1em 0;
+  position: relative;
+  top: -1px;
+}
