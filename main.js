@@ -190,6 +190,106 @@ function checkLocation(x,y,h,w) {
     window.speechSynthesis.speak(msg);
   }
 
+
+  //2 Key
+    if((city1=="Rome" || city2=="Rome") && (city1=="Lugdunum" || city2=="Lugdunum")) {
+        console.log("scenario 2");
+        document.getElementById("mymap").src = "media/map2.png";
+        $('#mymap').fadeOut();
+        $('#mymap').fadeIn();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
+        document.getElementById("description").innerText="The Fastest journey from Roma to Lugdunum in July takes 11.8 days, covering 1302 kilometers."
+        document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 2.32"
+        document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 2.49"
+        document.getElementById("carriage").innerText="Per passenger in a carriage: 449.01"
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
+        var msg = new SpeechSynthesisUtterance(document.getElementById("description").innerText);
+        window.speechSynthesis.speak(msg);
+    }
+
+    //4 Key
+    if((city1=="Rome" || city2=="Rome") && (city1=="Tarraco" || city2=="Tarraco")) {
+        console.log("scenario 4");
+        document.getElementById("mymap").src = "media/map5.png";
+        $('#mymap').fadeOut();
+        $('#mymap').fadeIn();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
+        document.getElementById("description").innerText="The Fastest journey from Roma to Tarraco in July takes 8 days, covering 1020 kilometers."
+        document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 0.86"
+        document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 0.86"
+        document.getElementById("carriage").innerText="Per passenger in a carriage: 215.4"
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();
+        var msg = new SpeechSynthesisUtterance(document.getElementById("description").innerText);
+        window.speechSynthesis.speak(msg);
+    }
+
+    //5 Key
+    if((city1=="Rome" || city2=="Rome") && (city1=="Corinthus" || city2=="Corinthus")) {
+        console.log("scenario 5");
+        document.getElementById("mymap").src = "media/map6.png";
+        $('#mymap').fadeOut();
+        $('#mymap').fadeIn();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
+        document.getElementById("description").innerText="The Fastest journey from Roma to Corinthus in July takes 9.4 days, covering 1444 kilometers."
+        document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 1"
+        document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 1"
+        document.getElementById("carriage").innerText="Per passenger in a carriage: 251.25"
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();var msg = new SpeechSynthesisUtterance(document.getElementById("description").innerText);
+        window.speechSynthesis.speak(msg);
+    }
+
+    //6 Key
+    if((city1=="Rome" || city2=="Rome") && (city1=="Antiochia" || city2=="Antiochia")) {
+        console.log("scenario 6");
+        document.getElementById("mymap").src = "media/map7.png";
+        $('#mymap').fadeOut();
+        $('#mymap').fadeIn();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
+        document.getElementById("description").innerText="The Fastest journey from Roma to Antiochia in July takes 17.7 days, covering 2903 kilometers."
+        document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 2.4"
+        document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 2.57"
+        document.getElementById("carriage").innerText="Per passenger in a carriage: 472.03"
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();var msg = new SpeechSynthesisUtterance(document.getElementById("description").innerText);
+        window.speechSynthesis.speak(msg);
+    }
+
+    //8 Key
+    if((city1=="Rome" || city2=="Rome") && (city1=="Londinium" || city2=="Londinium")) {
+        console.log("scenario 8");
+        document.getElementById("mymap").src = "media/map9.png";
+        $('#mymap').fadeOut();
+        $('#mymap').fadeIn();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
+        document.getElementById("description").innerText="The Fastest journey from Roma to Londinium in July takes 27.1 days, covering 2967 kilometers."
+        document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 6.85"
+        document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 7.87"
+        document.getElementById("carriage").innerText="Per passenger in a carriage: 900.93"
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();var msg = new SpeechSynthesisUtterance(document.getElementById("description").innerText);
+        window.speechSynthesis.speak(msg);
+    }
+
+    //9 Key
+    if((city1=="Rome" || city2=="Rome") && (city1=="Augusta Treverorum" || city2=="Augusta Treverorum")) {
+        console.log("scenario 9");
+        document.getElementById("mymap").src = "media/map10.png";
+        $('#mymap').fadeOut();
+        $('#mymap').fadeIn();
+        $('#explanation').fadeOut();$('#explanation2').fadeOut();
+        document.getElementById("description").innerText="The Fastest journey from Roma to Augusta Treverorum in July takes 32.9 days, covering 1464 kilometers."
+        document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 20.4"
+        document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 25.17"
+        document.getElementById("carriage").innerText="Per passenger in a carriage: 1260.82"
+        $('#explanation').fadeIn();$('#explanation2').fadeIn();var msg = new SpeechSynthesisUtterance(document.getElementById("description").innerText);
+        window.speechSynthesis.speak(msg);
+    }
+     
+
+
+
+
+
+
+
 }
 
 
@@ -221,8 +321,8 @@ function checkCity(myCoords) {
     return "Constantinopolis";
   }
   else if ((myCoords.x>1 && myCoords.x<38) && (myCoords.y>0 && myCoords.y<31) && (myCoords.height>39 && myCoords.height<79) && (myCoords.width>33 && myCoords.width<73)) {
-    console.log("found Londonium");
-    return "Londonium";
+    console.log("found Londinium");
+    return "Londinium";
   }
   else if ((myCoords.x>1 && myCoords.x<38) && (myCoords.y>0 && myCoords.y<31) && (myCoords.height>39 && myCoords.height<79) && (myCoords.width>33 && myCoords.width<73)) {
     console.log("found Augusta Treverorum");
@@ -230,7 +330,7 @@ function checkCity(myCoords) {
   }
   else if ((myCoords.x>80 && myCoords.x<120) && (myCoords.y>123 && myCoords.y<163) && (myCoords.height>29 && myCoords.height<69) && (myCoords.width>28 && myCoords.width<68)) {
     console.log("found Lugdundum");
-    return "Lugdundum";
+    return "Lugdunum";
   }
   else if ((myCoords.x>17 && myCoords.x<57) && (myCoords.y>215 && myCoords.y<255) && (myCoords.height>28 && myCoords.height<68) && (myCoords.width>32 && myCoords.width<72)) {
     console.log("found Tarraco");
