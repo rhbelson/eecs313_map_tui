@@ -144,10 +144,11 @@ function detectColors(img) {
 
         //Keep length isn't two or flush
         if (detectedCoordinates.length==2) {
-          detectedCoordinates=[]
+          console.log("detectedcoordinates length is 2");
+          detectedCoordinates=[];
         }
         detectedCoordinates.push(detectedCoords)
-        checkLocation(rect.x, rect.y, rect.height, rect.width)
+        checkLocation(rect.x, rect.y, rect.height, rect.width);
       });
     }
   });
@@ -165,19 +166,21 @@ function detectColors(img) {
 
 
 function checkLocation(x,y,h,w) {
-  if (detectedCoordinates!=2) {
-    return
+  console.log("in checkLocation");
+  if (detectedCoordinates.length!=2) {
+    console.log("detectedCoords not 2");
+    return;
   }
   //If rome is an object, render rome to constantinople
-  if (checkCity(detectedCoordinates[0])=="Rome" || checkCity(detectedCoordinates[1])=="Rome") && (checkCity(detectedCoordinates[0])=="Constantinoplis" || checkCity(detectedCoordinates[1])=="Constantinoplis") {
+  if ((checkCity(detectedCoordinates[0])=="Rome" || checkCity(detectedCoordinates[1])=="Rome") && (checkCity(detectedCoordinates[0])=="Constantinoplis" || checkCity(detectedCoordinates[1])=="Constantinoplis")) {
     document.getElementById("mymap").src = "media/map3.png";
     $('#mymap').fadeOut();
     $('#mymap').fadeIn();
     $('#explanation').fadeOut();$('#explanation2').fadeOut();
-    document.getElementById("description").innerText="The Fastest journey from Roma to Constantinopolis in July takes 21.3 days, covering 2724 kilometers."
-    document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 4.93"
-    document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 5.7"
-    document.getElementById("carriage").innerText="Per passenger in a carriage: 606.24"
+    document.getElementById("description").innerText="The Fastest journey from Roma to Constantinopolis in July takes 21.3 days, covering 2724 kilometers.";
+    document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 4.93";
+    document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 5.7";
+    document.getElementById("carriage").innerText="Per passenger in a carriage: 606.24";
     $('#explanation').fadeIn();$('#explanation2').fadeIn();
     var msg = new SpeechSynthesisUtterance(document.getElementById("description").innerText);
     window.speechSynthesis.speak(msg);
@@ -187,9 +190,31 @@ function checkLocation(x,y,h,w) {
 
 
 
-function checkCity(x,y,h,w) {
-  if ((x>197 || x<217) && (y>228 || y<248) && (h>36 || h<56) && (w>37 && w<57)) {
+/*
+Out of 640x480         (starting from lower left corner of block)
+City                    x  y  h  w   
+Londonium:              18 11 59 53
+Augusta Treverorum:     121 45 58 52
+Lugdundum:              100 143 49 48
+Tarraco:                37 235 48 52
+Carthago:               184 336 49 51
+Roma:                   207 238 46 47
+Sirmium:                315 156 46 47
+Corinthus:              368 278 45 48
+Constantinoplis:        447 228 45 57
+Antiochia:              538 324 52 61
+*/
+
+
+function checkCity(myCoords) {
+  console.log(myCoords);
+  if ((myCoords.x>187 || myCoords.x<227) && (myCoords.y>170 || myCoords.y<258) && (myCoords.height>26 || myCoords.height<66) && (myCoords.width>27 && myCoords.width<67)) {
+    console.log("found rome");
     return "Rome";
+  }
+  if ((myCoords.x>427 || myCoords.x<467) && (myCoords.y>208 || myCoords.y<248) && (myCoords.height>25 || myCoords.height<65) && (myCoords.width>37 && myCoords.width<77)) {
+    console.log("found constantinoplis");
+    return "Constantinopolis";
   }
 }
 
