@@ -172,8 +172,9 @@ function checkLocation(x,y,h,w) {
     return;
   }
 
-  city1=checkCity(detectedCoordinates[0])
-  city2=checkCity(detectedCoordinates[2])
+  var city1=checkCity(detectedCoordinates[0])
+  var city2=checkCity(detectedCoordinates[1])
+  console.log(detectedCoordinates.length)
 
   //If rome is an object, render rome to constantinople
   if ((city1=="Rome" || city2=="Rome") && (city1=="Constantinoplis" || city2=="Constantinoplis")) {
