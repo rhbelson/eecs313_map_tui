@@ -101,7 +101,6 @@ currently called in button.onclick
 */
 
 function detectColors(img) {
-  var detectedCoords = new Object(); 
 
   tracking.ColorTracker.registerColor('red', function(r, g, b) {
     var threshold = 50,
@@ -134,6 +133,7 @@ function detectColors(img) {
       // No colors were detected in this frame.
     } else {
       event.data.forEach(function(rect) {
+        var detectedCoords = new Object(); 
         detectedCoords.x = rect.x; 
         detectedCoords.y = rect.y;
         detectedCoords.height = rect.height; 
@@ -147,17 +147,14 @@ function detectColors(img) {
           console.log("detectedcoordinates length is 2");
           detectedCoordinates=[];
         }
-        detectedCoordinates.push(detectedCoords)
+        console.log(detectedCoordinates);
+        detectedCoordinates.push(detectedCoords);
         checkLocation(rect.x, rect.y, rect.height, rect.width);
       });
     }
   });
 
   tracking.track('#myCanvas', colors);
-
-  return detectedCoords;
-
-
 
 }
 
@@ -172,9 +169,9 @@ function checkLocation(x,y,h,w) {
     return;
   }
 
-  var city1=checkCity(detectedCoordinates[0])
-  var city2=checkCity(detectedCoordinates[1])
-  console.log(detectedCoordinates.length)
+  var city1=checkCity(detectedCoordinates[0]);
+  var city2=checkCity(detectedCoordinates[1]);
+  console.log(detectedCoordinates.length);
 
   //If rome is an object, render rome to constantinople
   if ((city1=="Rome" || city2=="Rome") && (city1=="Constantinoplis" || city2=="Constantinoplis")) {
@@ -212,12 +209,12 @@ Antiochia:              538 324 52 61
 
 
 function checkCity(myCoords) {
-  console.log(myCoords);
-  if ((myCoords.x>187 || myCoords.x<227) && (myCoords.y>170 || myCoords.y<258) && (myCoords.height>26 || myCoords.height<66) && (myCoords.width>27 && myCoords.width<67)) {
+  console.log(myCoords.x, myCoords.y, myCoords.width, myCoords.height);
+  if ((myCoords.x>187 && myCoords.x<227) && (myCoords.y>170 && myCoords.y<258) && (myCoords.height>26 && myCoords.height<66) && (myCoords.width>27 && myCoords.width<67)) {
     console.log("found rome");
     return "Rome";
   }
-  if ((myCoords.x>427 || myCoords.x<467) && (myCoords.y>208 || myCoords.y<248) && (myCoords.height>25 || myCoords.height<65) && (myCoords.width>37 && myCoords.width<77)) {
+  else if ((myCoords.x>427 && myCoords.x<467) && (myCoords.y>208 && myCoords.y<248) && (myCoords.height>25 && myCoords.height<65) && (myCoords.width>37 && myCoords.width<77)) {
     console.log("found constantinoplis");
     return "Constantinopolis";
   }
