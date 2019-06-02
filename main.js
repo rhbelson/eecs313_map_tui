@@ -25,6 +25,8 @@ const canvas = window.canvas = document.querySelector('canvas');
 canvas.width = 480;
 canvas.height = 360;
 
+var detectedCoordinates=[]
+
 navigator.mediaDevices.enumerateDevices()
   .then(gotDevices).then(getStream).catch(handleError);
 
@@ -138,6 +140,13 @@ function detectColors(img) {
         detectedCoords.width = rect.width; 
         detectedCoords.color = rect.color;
         console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+
+
+        //Keep length isn't two or flush
+        if (detectedCoordinates.length==2) {
+          detectedCoordinates=[]
+        }
+        detectedCoordinates.push(detectedCoords)
         checkLocation(rect.x, rect.y, rect.height, rect.width)
       });
     }
@@ -146,6 +155,9 @@ function detectColors(img) {
   tracking.track('#myCanvas', colors);
 
   return detectedCoords;
+
+
+
 }
 
 
@@ -153,8 +165,11 @@ function detectColors(img) {
 
 
 function checkLocation(x,y,h,w) {
+  if (detectedCoordinates!=2) {
+    return
+  }
   //If rome is an object, render rome to constantinople
-  if ((x>197 || x<217) && (y>228 || y<248) && (h>36 || h<56) && (w>37 && w<57)) {
+  if (checkCity(detectedCoordinates[0])=="Rome" || checkCity(detectedCoordinates[1])=="Rome") && (checkCity(detectedCoordinates[0])=="Constantinoplis" || checkCity(detectedCoordinates[1])=="Constantinoplis") {
     document.getElementById("mymap").src = "media/map3.png";
     $('#mymap').fadeOut();
     $('#mymap').fadeIn();
@@ -171,5 +186,11 @@ function checkLocation(x,y,h,w) {
 }
 
 
+
+function checkCity(x,y,h,w) {
+  if ((x>197 || x<217) && (y>228 || y<248) && (h>36 || h<56) && (w>37 && w<57)) {
+    return "Rome";
+  }
+}
 
 
