@@ -171,8 +171,12 @@ function checkLocation(x,y,h,w) {
     console.log("detectedCoords not 2");
     return;
   }
+
+  city1=checkCity(detectedCoordinates[0])
+  city2=checkCity(detectedCoordinates[2])
+
   //If rome is an object, render rome to constantinople
-  if ((checkCity(detectedCoordinates[0])=="Rome" || checkCity(detectedCoordinates[1])=="Rome") && (checkCity(detectedCoordinates[0])=="Constantinoplis" || checkCity(detectedCoordinates[1])=="Constantinoplis")) {
+  if ((city1=="Rome" || city2=="Rome") && (city1=="Constantinoplis" || city2=="Constantinoplis")) {
     document.getElementById("mymap").src = "media/map3.png";
     $('#mymap').fadeOut();
     $('#mymap').fadeIn();
