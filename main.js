@@ -138,6 +138,7 @@ function detectColors(img) {
         detectedCoords.width = rect.width; 
         detectedCoords.color = rect.color;
         console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+        checkLocation(rect.x, rect.y, rect.height, rect.width)
       });
     }
   });
@@ -146,3 +147,29 @@ function detectColors(img) {
 
   return detectedCoords;
 }
+
+
+
+
+
+function checkLocation(x,y,h,w) {
+  //If rome is an object, render rome to constantinople
+  if ((x>197 || x<217) && (y>228 || y<248) && (h>36 || h<56) && (w>37 && w<57)) {
+    document.getElementById("mymap").src = "media/map3.png";
+    $('#mymap').fadeOut();
+    $('#mymap').fadeIn();
+    $('#explanation').fadeOut();$('#explanation2').fadeOut();
+    document.getElementById("description").innerText="The Fastest journey from Roma to Constantinopolis in July takes 21.3 days, covering 2724 kilometers."
+    document.getElementById("donkey").innerText="Per kilogram of wheat (by donkey): 4.93"
+    document.getElementById("wagon").innerText="Per kilogram of wheat (by wagon): 5.7"
+    document.getElementById("carriage").innerText="Per passenger in a carriage: 606.24"
+    $('#explanation').fadeIn();$('#explanation2').fadeIn();
+    var msg = new SpeechSynthesisUtterance(document.getElementById("description").innerText);
+    window.speechSynthesis.speak(msg);
+  }
+
+}
+
+
+
+
