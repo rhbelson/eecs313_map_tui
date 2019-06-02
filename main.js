@@ -171,10 +171,12 @@ function checkLocation(x,y,h,w) {
 
   var city1=checkCity(detectedCoordinates[0]);
   var city2=checkCity(detectedCoordinates[1]);
-  console.log(detectedCoordinates.length);
+  console.log(city1);
+  console.log(city2);
 
   //If rome is an object, render rome to constantinople
-  if ((city1=="Rome" || city2=="Rome") && (city1=="Constantinoplis" || city2=="Constantinoplis")) {
+  if ((city1=="Rome" || city2=="Rome") && (city1=="Constantinopolis" || city2=="Constantinopolis")) {
+    console.log("found both cities");
     document.getElementById("mymap").src = "media/map3.png";
     $('#mymap').fadeOut();
     $('#mymap').fadeIn();
