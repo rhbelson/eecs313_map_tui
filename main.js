@@ -220,6 +220,40 @@ function checkCity(myCoords) {
     console.log("found constantinoplis");
     return "Constantinopolis";
   }
+  else if ((myCoords.x>1 && myCoords.x<38) && (myCoords.y>0 && myCoords.y<31) && (myCoords.height>39 && myCoords.height<79) && (myCoords.width>33 && myCoords.width<73)) {
+    console.log("found Londonium");
+    return "Londonium";
+  }
+  else if ((myCoords.x>1 && myCoords.x<38) && (myCoords.y>0 && myCoords.y<31) && (myCoords.height>39 && myCoords.height<79) && (myCoords.width>33 && myCoords.width<73)) {
+    console.log("found Augusta Treverorum");
+    return "Augusta Treverorum";
+  }
+  else if ((myCoords.x>80 && myCoords.x<120) && (myCoords.y>123 && myCoords.y<163) && (myCoords.height>29 && myCoords.height<69) && (myCoords.width>28 && myCoords.width<68)) {
+    console.log("found Lugdundum");
+    return "Lugdundum";
+  }
+  else if ((myCoords.x>17 && myCoords.x<57) && (myCoords.y>215 && myCoords.y<255) && (myCoords.height>28 && myCoords.height<68) && (myCoords.width>32 && myCoords.width<72)) {
+    console.log("found Tarraco");
+    return "Tarraco";
+  }
+  else if ((myCoords.x>295 && myCoords.x<225) && (myCoords.y>136 && myCoords.y<176) && (myCoords.height>29 && myCoords.height<69) && (myCoords.width>31 && myCoords.width<71)) {
+    console.log("found Carthago");
+    return "Carthago";
+  }
+  else if ((myCoords.x>164 && myCoords.x<204) && (myCoords.y>316 && myCoords.y<356) && (myCoords.height>26 && myCoords.height<66) && (myCoords.width>27 && myCoords.width<67)) {
+    console.log("found Sirmium");
+    return "Sirmium";
+  }
+  else if ((myCoords.x>348 && myCoords.x<388) && (myCoords.y>258 && myCoords.y<298) && (myCoords.height>25 && myCoords.height<65) && (myCoords.width>28 && myCoords.width<68)) {
+    console.log("found Corinthus");
+    return "Corinthus";
+  }
+  else if ((myCoords.x>518 && myCoords.x<558) && (myCoords.y>304 && myCoords.y<344) && (myCoords.height>32 && myCoords.height<72) && (myCoords.width>41 && myCoords.width<81)) {
+    console.log("found Antiochia");
+    return "Antiochia";
+  }
+
+
 }
 
 
